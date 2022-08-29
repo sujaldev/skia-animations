@@ -67,7 +67,7 @@ class PerspectiveCube(Cube):
 
 
 main_cube = PerspectiveCube(
-    Vector(500, 500, -100),
+    Vector(500, 500, -1000),
     Vector(500, 500, 0),
     0, 0, 200
 )
