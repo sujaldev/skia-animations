@@ -121,7 +121,7 @@ class Cube:
             (self.front_plane.bottom_left, self.back_plane.bottom_left),
         )
 
-    def paint_cube(self, canvas: Canvas, stroke_width: float, stroke_color: Color):
+    def paint(self, canvas: Canvas, stroke_width: float, stroke_color: Color):
         self.front_plane.paint(canvas, stroke_width, stroke_color)
         self.back_plane.paint(canvas, stroke_width, stroke_color)
         paint = Paint(

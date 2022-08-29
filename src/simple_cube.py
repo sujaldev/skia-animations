@@ -20,7 +20,7 @@ def event_loop(canvas: Canvas, event):
     elif event.window.data1 == 81:
         main_cube.x_rotation -= .05
 
-    main_cube.paint_cube(canvas, 3, Color(255, 0, 0))
+    main_cube.paint(canvas, 3, Color(0, 255, 0))
 
 
 window = Window("Simple Cube", 1000, 1000, event_loop=event_loop)
