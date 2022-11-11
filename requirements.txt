@@ -1,2 +1,4 @@
 skia-python
 PySDL2
+numpy
+scipy
