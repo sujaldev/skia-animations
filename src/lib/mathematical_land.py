@@ -212,12 +212,9 @@ class Circle:
     @property
     def radius_line(self) -> Vector:
         # Returns a unit in the direction parallel to the plane in which the circle lies
-        radius = Vector()
-        radius.z = sin(self.x_rotation + pi / 2)
-        radius.y = -cos(self.x_rotation + pi / 2)
-        radius.z = radius.z * cos(self.z_rotation)
-        radius.x = radius.z * sin(self.z_rotation)
-        return radius.scale(self.radius)
+        perpendicular_vector = self.origin * self.normal
+        unit_vector = perpendicular_vector / perpendicular_vector.len()
+        return unit_vector.scale(self.radius)
 
     @staticmethod
     def rotate(vector: Vector, axis: Vector, theta: float):

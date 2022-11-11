@@ -1,10 +1,11 @@
 from lib.mathematical_land import Circle, Vector
 from lib.ui_backend import Window
 from skia import Canvas, Color
+from math import pi
 
 ring = Circle(
     Vector(500, 500, 0),
-    100, 0, 0
+    100, pi/2, 0
 )
 
 
