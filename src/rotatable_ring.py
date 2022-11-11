@@ -1,16 +1,15 @@
 from lib.mathematical_land import Circle, Vector
 from lib.ui_backend import Window
 from skia import Canvas, Color
-from math import pi
 
 ring = Circle(
-    Vector(500, 500, 0),
-    100, pi/2, 0
+    Vector(910, 490, 0),
+    100, 0, 0
 )
 
 
 def event_loop(canvas: Canvas, event):
-    canvas.drawColor(Color(0, 0, 0))
+    canvas.drawColor(Color(25, 25, 25))
 
     if event.window.data1 == 79:
         ring.z_rotation += .05

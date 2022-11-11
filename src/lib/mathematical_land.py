@@ -193,11 +193,12 @@ class Cube:
 
 
 class Circle:
-    def __init__(self, origin: Vector, radius: float, x_rotation: float = 0, z_rotation: float = 0):
+    def __init__(self, origin: Vector, radius: float, x_rotation: float = 0, z_rotation: float = 0, resolution=30):
         self.origin = origin
         self.radius = radius
         self.x_rotation = x_rotation
         self.z_rotation = z_rotation
+        self.resolution = resolution
 
     @property
     def normal(self) -> Vector:
@@ -225,15 +226,15 @@ class Circle:
         return Vector(*np.dot(m0, vector))
 
     def paint(self, canvas: Canvas, stroke_width: float, stroke_color: Color):
-        resolution = 100
-        step = (2 * pi) / resolution
+        step = (2 * pi) / self.resolution
         angle = step
-        radius_line = self.radius_line
-        normal = self.normal
+        radius_line, normal = self.radius_line, self.normal
         paint = Paint(Color=stroke_color, StrokeWidth=stroke_width)
-        for i in range(resolution):
+        for _ in range(self.resolution):
             next_angle = angle + step
+
             p1 = self.origin + self.rotate(radius_line, normal, angle)
             p2 = self.origin + self.rotate(radius_line, normal, next_angle)
             canvas.drawLine(p1.xy, p2.xy, paint)
+
             angle += step
