@@ -1,7 +1,8 @@
 from math import sqrt, sin, cos, pi
-from skia import Canvas, Color, Paint
+
 import numpy as np
 from scipy.linalg import expm, norm
+from skia import Canvas, Color, Paint
 
 
 class Vector:
@@ -193,7 +194,7 @@ class Cube:
 
 
 class Circle:
-    def __init__(self, origin: Vector, radius: float, x_rotation: float = 0, z_rotation: float = 0, resolution=30):
+    def __init__(self, origin: Vector, radius: float, x_rotation: float = 0, z_rotation: float = 0, resolution=20):
         self.origin = origin
         self.radius = radius
         self.x_rotation = x_rotation
@@ -238,3 +239,32 @@ class Circle:
             canvas.drawLine(p1.xy, p2.xy, paint)
 
             angle += step
+
+
+class SphereWireframe:
+    def __init__(self, origin: Vector, radius: float, x_rotation: float = 0, z_rotation: float = 0, wire_gap=8):
+        self.origin = origin
+        self.radius = radius
+        self.x_rotation = x_rotation
+        self.z_rotation = z_rotation
+        self.wire_gap = wire_gap
+
+    def vertical_render(self, canvas: Canvas, stroke_width: float, stroke_color: Color):
+        height_step = (self.radius * 2) / self.wire_gap
+        height = height_step
+
+        base_circle = Circle(self.origin - Vector(y=self.radius), self.radius, self.x_rotation, self.z_rotation)
+        current_origin = base_circle.origin - base_circle.normal
+        current_origin.y += height_step
+
+        for _ in range(self.wire_gap):
+            print(self.radius - height)
+            radius = np.sqrt(self.radius ** 2 - (self.radius - height) ** 2)
+            circle = Circle(current_origin, radius, self.x_rotation, self.z_rotation)
+            circle.paint(canvas, stroke_width, stroke_color)
+
+            current_origin.y += height_step
+            height += height_step
+
+    def paint(self, canvas: Canvas, stroke_width: float, stroke_color: Color):
+        self.vertical_render(canvas, stroke_width, stroke_color)
