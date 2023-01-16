@@ -20,6 +20,10 @@ class Vector:
         return self.x, self.y
 
     @property
+    def i_xy(self):
+        return int(self.x), int(self.y)
+
+    @property
     def xyz(self):
         return self.x, self.y, self.z
 
@@ -52,6 +56,9 @@ class Vector:
             np.array(self.xyz),
             np.array(other.xyz)
         ))
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y and self.z == other.z
 
     def __truediv__(self, other):
         if type(other) == Vector:
