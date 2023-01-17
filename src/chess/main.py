@@ -11,7 +11,7 @@ horse = Horse(board)
 solver = Board(board.rows, board.columns, [Vector(*o) for o in board.obstacles], Vector(*board.target), horse.position)
 path = solver.solve()
 start = horse
-paint = skia.Paint(Color=skia.Color(0, 255, 0))
+paint = skia.Paint(Color=skia.Color(0, 255, 0), StrokeWidth=5)
 
 
 def frame_renderer(canvas: skia.Canvas, time):
