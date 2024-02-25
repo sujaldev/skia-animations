@@ -18,8 +18,10 @@ Sphere Wireframe (it's painfully slow to run, but looks nice):
 
 ---
 
-Chess ([Read more here](https://github.com/sujaldev/skia-animations/blob/main/src/chess/README.md)):
+Knight's Tour [(also see video)](https://youtu.be/Qtmlth0b12Y). Green box is the start, the grey boxes are the
+obstacles, blue box is the destination.
 
 ![chess output](https://github.com/sujaldev/skia-animations/blob/main/docs/chess_output.png?raw=True)
 
 ![chess output](https://github.com/sujaldev/skia-animations/blob/main/docs/chess_output_2.png?raw=True)
+
