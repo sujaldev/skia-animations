@@ -6,9 +6,15 @@ Rendering stuff with skia for fun.
 
 ---
 
-Even though the code for the circle rendering is not working, it still looks cool:
+There was some bug in the circle rendering (fixed now) which caused this cool animation:
 
 ![rotatable_ring.py output](https://github.com/sujaldev/skia-animations/blob/main/docs/circle.gif?raw=True)
+
+---
+
+Sphere Wireframe (it's painfully slow to run, but looks nice):
+
+![sphere_wireframe.py output](https://github.com/sujaldev/skia-animations/blob/main/docs/sphere-wireframe.png?raw=True)
 
 ---
 
