@@ -201,21 +201,21 @@ class Cube:
 
 
 class Circle:
-    def __init__(self, origin: Vector, radius: float, x_rotation: float = 0, z_rotation: float = 0, resolution=20):
+    def __init__(self, origin: Vector, radius: float, x_rotation: float = 0, y_rotation: float = 0, resolution=20):
         self.origin = origin
         self.radius = radius
         self.x_rotation = x_rotation
-        self.z_rotation = z_rotation
+        self.y_rotation = y_rotation
         self.resolution = resolution
 
     @property
     def normal(self) -> Vector:
-        # Returns a unit vector in the direction perpendicular to the plane in which the circle lies.
+        # Returns a unit normal vector for the plane in which the circle lies from given polar coordinates.
         normal = Vector()
-        normal.z = sin(self.x_rotation)
+        base = sin(self.x_rotation)
         normal.y = -cos(self.x_rotation)
-        normal.z = normal.z * cos(self.z_rotation)
-        normal.x = normal.z * sin(self.z_rotation)
+        normal.z = base * cos(self.y_rotation)
+        normal.x = base * sin(self.y_rotation)
         return normal
 
     @property

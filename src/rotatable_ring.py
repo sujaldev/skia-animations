@@ -12,9 +12,9 @@ def event_loop(canvas: Canvas, event):
     canvas.drawColor(Color(25, 25, 25))
 
     if event.window.data1 == 79:
-        ring.z_rotation += .05
+        ring.y_rotation += .05
     elif event.window.data1 == 80:
-        ring.z_rotation -= .05
+        ring.y_rotation -= .05
     elif event.window.data1 == 82:
         ring.x_rotation += .05
     elif event.window.data1 == 81:
